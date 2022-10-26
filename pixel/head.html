@@ -1,11 +1,21 @@
 <script>
   (function() {
-    var appId = "{{settings.gtmId}}";
-    if (!appId) {
-      console.error('Warning: No APP NAME ID is defined. Please configure it in the apps admin.');
+    var orgID = "{{settings.orgId}}";
+    if (!orgID) {
+      console.error('Warning: No ORG ID is defined. Please configure it in the apps admin.');
       return
-    }
+    } else {
+      var orderFormLocal = JSON.parse(window.localStorage.getItem("orderform"));
+      var uID = orderFormLocal !== null && orderFormLocal?.userProfileId;
 
-    // Add script here
+      window.SpressoSdk = window.SpressoSdk || { init: function(o) { SpressoSdk.options = o; } }
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://spresso-sdk-tracking-web.us-east4.prod.spresso.com/v4.3.30-beta/spresso.sdk.tracking.web.js';
+      s.onload = function() { window.SpressoSdk.init(uID && uID !== null ? { orgId: orgID, userId: uID } : { orgId: orgID }) }
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }
   })()
 </script>

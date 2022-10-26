@@ -1,9 +1,9 @@
 {
-  "name": "YOURAPPNAME",
-  "vendor": "vtex",
+  "name": "spresso-sdk",
+  "vendor": "jefferspet",
   "version": "0.0.1",
-  "title": "CHANGEME",
-  "description": "CHANGEME",
+  "title": "Spresso SDK Integration",
+  "description": "Spresso SDK Integration",
   "billingOptions": {
     "termsURL": "https://compliance.vtex.com/gdpr/policies/vtex-privacy-policy",
     "support": {
@@ -22,15 +22,16 @@
     "docs": "0.x"
   },
   "dependencies": {
-    "vtex.pixel-interfaces": "1.x"
+    "vtex.pixel-interfaces": "1.x",
+    "vtex.product-summary-context": "0.x"
   },
   "settingsSchema": {
-    "title": "YOUR APP NAME",
+    "title": "Spresso SDK Integration",
     "type": "object",
     "properties": {
-      "gtmId": {
-        "title": "SAMPLE FIELD",
-        "description": "Enter the ID (GTM-XXXX) from your Google Tag Manager",
+      "orgId": {
+        "title": "Organization ID",
+        "description": "Enter the ORG ID for Spresso",
         "type": "string"
       }
     }
