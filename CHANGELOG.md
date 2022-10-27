@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.2] - 2022-10-27
+
 ### Added
 
 - SDK Events - CREATE_ORDER, GLIMPSE_PLE, PAGE_VIEW, PURCHASE_VARIANT, TAP_ADD_TO_CART, VIEW_PDP
