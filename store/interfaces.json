@@ -1,5 +1,8 @@
 {
   "pixel.spresso-sdk": {
     "component": "index"
+  },
+  "track-glimpse-PLE": {
+    "component": "TrackGlimpsePLE"
   }
 }
