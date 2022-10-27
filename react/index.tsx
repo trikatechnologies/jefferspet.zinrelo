@@ -5,7 +5,6 @@ import type { PixelMessage } from './typings/events'
 declare const window: any
 
 export function handleEvents(e: PixelMessage) {
-  // console.log(e.data)
   const getIp = async ()  => {
     return await fetch('https://www.cloudflare.com/cdn-cgi/trace').then(res => res.text());
   }
@@ -15,7 +14,6 @@ export function handleEvents(e: PixelMessage) {
   }
 
   const spressTrack = async () => {
-    console.log(e.data)
     if (e.data.eventName === 'vtex:userData') {
       // Set UserId and IpAddress
       const uiD = e.data.isAuthenticated ? e.data.id : ''
