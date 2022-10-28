@@ -49,7 +49,7 @@ export function handleEvents(e: PixelMessage) {
           variantSku: sku.itemId,
           variantName: sku.name,
           variantPrice: sku.sellers[0].commertialOffer.Price,
-          variantCost: sku.sellers[0].commertialOffer.ListPrice,
+          // variantCost: sku.sellers[0].commertialOffer.ListPrice,
           inStock: sku.sellers[0].commertialOffer.AvailableQuantity,
           remoteAddress: ip
         })
@@ -69,7 +69,7 @@ export function handleEvents(e: PixelMessage) {
           variantSku: sku.skuId,
           variantName: sku.name,
           variantPrice: sku.sellingPrice,
-          variantCost: sku.price,
+          // variantCost: sku.price,
           remoteAddress: ip
         })
       }
@@ -80,11 +80,11 @@ export function handleEvents(e: PixelMessage) {
       const data: any = e.data
       const items = data.transactionProducts
       const filterQty = items.map((qty: any) => qty["quantity"])
-      const filterCost = items.map((qty: any) => qty["price"])
+      // const filterCost = items.map((qty: any) => qty["price"])
       const filterPrice = items.map((qty: any) => qty["sellingPrice"])
       const taxes: any = Object.values(data.transactionCustomTaxes)
       const totalQuantity = filterQty.reduce(getSum, 0)
-      const totalCost = filterCost.reduce(getSum, 0)
+      // const totalCost = filterCost.reduce(getSum, 0)
       const totalPrice = filterPrice.reduce(getSum, 0)
       const totalTax = taxes.reduce(getSum, 0)
 
@@ -103,7 +103,7 @@ export function handleEvents(e: PixelMessage) {
           shippingInfoFirstName: data.visitorContactInfo[1],
           shippingInfoLastName: data.visitorContactInfo[2],
           totalVariantQuantity: totalQuantity,
-          totalVariantCost: parseFloat(totalCost.toFixed(2)),
+          // totalVariantCost: parseFloat(totalCost.toFixed(2)),
           totalVariantPrice: parseFloat(totalPrice.toFixed(2)),
           orderTax: parseFloat(totalTax.toFixed(2)),
           totalOrderFees: data.transactionShipping,
@@ -120,7 +120,7 @@ export function handleEvents(e: PixelMessage) {
             variantPrice: item.sellingPrice,
             variantQuantity: item.quantity,
             variantStandardPrice: item.originalPrice,
-            variantCost: item.price
+            // variantCost: item.price
           })
         })
       }

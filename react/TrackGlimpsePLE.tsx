@@ -51,7 +51,7 @@ const TrackGlimpsePLE = () => {
         variantSku: product.sku.itemId,
         variantName: product.sku.name,
         variantPrice: product.sku.seller.commertialOffer.Price,
-        variantCost: product.sku.seller.commertialOffer.ListPrice
+        // variantCost: product.sku.seller.commertialOffer.ListPrice
       })
 
       setPleData(trackdata)
