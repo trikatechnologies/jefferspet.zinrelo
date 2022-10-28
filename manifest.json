@@ -1,7 +1,7 @@
 {
   "name": "spresso-sdk",
   "vendor": "jefferspet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Spresso SDK Integration",
   "description": "Spresso SDK Integration",
   "builders": {
