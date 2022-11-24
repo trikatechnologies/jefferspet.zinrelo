@@ -1,29 +1,50 @@
 {
-  "name": "spresso-sdk",
+  "name": "zinrelo",
   "vendor": "jefferspet",
-  "version": "1.0.2",
-  "title": "Spresso SDK Integration",
-  "description": "Spresso SDK Integration",
+  "version": "0.0.0",
+  "title": "Zinrelo Integration",
+  "description": "Zinrelo Integration",
   "builders": {
     "react": "3.x",
     "store": "0.x",
     "pixel": "0.x",
-    "docs": "0.x"
+    "docs": "0.x",
+    "node": "6.x"
   },
   "dependencies": {
     "vtex.pixel-interfaces": "1.x",
     "vtex.product-summary-context": "0.x"
   },
   "settingsSchema": {
-    "title": "Spresso SDK Integration",
+    "title": "Zinrelo Integration",
     "type": "object",
     "properties": {
-      "orgId": {
-        "title": "Organization ID",
-        "description": "Enter the ORG ID for Spresso",
+      "apiKey": {
+        "title": "API Key",
+        "description": "Enter the API Key for Zinrelo",
+        "type": "string"
+      },
+      "partnerId": {
+        "title": "Partner Id",
+        "description": "Enter the partnerId for Zinrelo",
         "type": "string"
       }
     }
   },
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "api.zinrelo.com",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "name": "colossus-write-logs"
+    }
+  ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

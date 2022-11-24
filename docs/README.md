@@ -1,14 +1,14 @@
-# Spresso SDK
+# Zinrelo Integration
 
-  The Spresso SDK app is Web Event SDK which is a client-side JavaScript library you can install in your project to start sending event data from anywhere in your application.  
+  The Zinrelo Integration app is loyalty program.  
 
 
 ## Configuration
 
-  1. Include (`jefferspet.spresso-sdk@0.x`) and install this app (`jefferspet.spresso-sdk`) in the desired account
+  1. Include (`jefferspet.zinrelo@0.x`) and install this app (`jefferspet.zinrelo`) in the desired account
 
   ```json
-    vtex install jefferspet.spresso-sdk
+    vtex install jefferspet.zinrelo
   ```
 
-  Then, add `ORG ID` from the admin.
+  Then, add `Partner ID` and `API Key` from the admin.

@@ -1,8 +1,5 @@
 {
-  "pixel.spresso-sdk": {
+  "pixel.zinrelo": {
     "component": "index"
-  },
-  "track-glimpse-PLE": {
-    "component": "TrackGlimpsePLE"
   }
 }
