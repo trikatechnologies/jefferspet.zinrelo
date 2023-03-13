@@ -1,7 +1,7 @@
 <script>
   (async function () {
-    var partnerId = "{{settings.partnerId}}";
-    var apiKey = "{{settings.apiKey}}";
+    const partnerId = "{{settings.partnerId}}";
+    const apiKey = "{{settings.apiKey}}";
 
     if (!partnerId || !apiKey) {
       console.error(
@@ -9,64 +9,45 @@
       )
       return
     }
+    const creds = JSON.stringify({"zrlKey": partnerId, "zrlValue": apiKey})
+    sessionStorage.setItem("_zrlsession", creds)
 
-    var orderFormLocal = JSON.parse(window.localStorage.getItem("orderform"));
-    var uID =
-      orderFormLocal !== null && (orderFormLocal?.userProfileId || "");
-    var clientEmail =
-      orderFormLocal !== null &&
-      (orderFormLocal?.clientProfileData?.email || "");
-    var clientNameFirst =
-      orderFormLocal !== null &&
-      (orderFormLocal?.clientProfileData?.firstName || "");
-    var clientNameLast =
-      orderFormLocal !== null &&
-      (orderFormLocal?.clientProfileData?.lastName || "");
+    // const s = document.createElement("script");
+    // s.type = "text/javascript";
+    // s.async = true;
+    // s.id = "zinreloscript"
+    // s.src = "https://cdn.zinrelo.com/js/all.js";
+    // s.onload = async function () {
+    //   // setTimeout(() => {console.log("afaf")}, 5000)
+    //   const userData = JSON.parse(sessionStorage.getItem("userData"))
+    //   console.log("userData", userData)
 
-    var clientNameFull = clientNameFirst + " " + clientNameLast;
-    var currentTime = Date.now();
-    var fullString = uID + clientEmail + partnerId + apiKey + currentTime;
-    console.log(
-      "fullstr",
-      uID + clientEmail + partnerId + apiKey + currentTime
-    );
-    //
-    const msgBuffer = new TextEncoder().encode(fullString);
-    // hash the message
-    const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
-    // convert ArrayBuffer to Array
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    // convert bytes to hex string
-    const hashHex = hashArray
-      .map((b) => b.toString(16).padStart(2, "0"))
-      .join("");
+    //   const uID = userData !== null && userData.isAuthenticated ? userData.id : ""
+    //   const clientEmail = userData !== null && userData.isAuthenticated ? userData.email : ""
+    //   const clientNameFull = userData !== null && userData.isAuthenticated ? userData.firstName + '' +userData.lastName : ""
+    //   const currentTime = Date.now();
+    //   const fullString = uID + clientEmail + partnerId + apiKey + currentTime;
 
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = "https://cdn.zinrelo.com/js/all.js";
-    s.onload = function () {
-      window._zrl = window._zrl || [];
-      var init_data = {
-        partner_id: partnerId /*REQUIRED: Zinrelo Partner ID*/,
-        email: clientEmail
-          ? clientEmail
-          : "" /*REQUIRED: When User is Logged in.For Non-Logged in users,
-        pass an empty string ('')*/,
-        name: clientNameFull /*REQUIRED: When User is Logged in.For Non-Logged in users,
-        pass an empty string ('')*/,
-        user_id:
-          uID /*REQUIRED: When User is Logged in.For Non-Logged in users
-        and guest users who DO NOT have an account,
-        pass an empty string ('')*/,
-        ts: currentTime, //'Current TimeStamp in epoch format',
-        access_token: hashHex, // 'SHA256 hash of the string formed by concatenating - user_id, email,partner_id, api_key and ts - in the same order as mentioned'
-      };
-      _zrl.push(["init", init_data]);
-    };
+    //   const msgBuffer = new TextEncoder().encode(fullString);
+    //   const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+    //   const hashArray = Array.from(new Uint8Array(hashBuffer));
+    //   const hashHex = hashArray
+    //     .map((b) => b.toString(16).padStart(2, "0"))
+    //     .join("");
+    //   window._zrl = window._zrl || [];
+    //   var init_data = {
+    //     partner_id: partnerId,
+    //     email: clientEmail,
+    //     name: clientNameFull,
+    //     user_id: uID,
+    //     ts: currentTime,
+    //     access_token: hashHex,
+    //   };
+    //   _zrl.push(["init", init_data]);
+    // };
 
-    var x = document.getElementsByTagName("script")[0];
-    x.parentNode.insertBefore(s, x);
+    // var x = document.getElementsByTagName("script")[0];
+    // x.parentNode.insertBefore(s, x);
 
   })();
 </script>

@@ -1,0 +1,5 @@
+query AppSettings($version: String) {
+  appSettings(app: "jefferspet.zinrelo", version: $version) @context(provider: "vtex.apps-graphql") {
+    message
+  }
+}

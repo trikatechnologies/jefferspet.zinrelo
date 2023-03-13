@@ -9,8 +9,6 @@ export async function purchase(ctx: Context, next: () => Promise<any>) {
 
   const body: PurchasePayload = await json(ctx.req)
 
-  console.info(body)
-
   const data = await ZinreloAPI.purchase({
     user_email: body.user_email,
     total: body.total,

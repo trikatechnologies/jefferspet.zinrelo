@@ -1,5 +1,15 @@
 {
   "pixel.zinrelo": {
     "component": "index"
+  },
+  "zinrelo-dashboard": {
+    "component": "zinreloDashboard"
+  },
+  "my-account-page.zinrelo": {
+    "component": "MyAccountZinreloPage",
+    "composition": "children"
+  },
+  "my-account-link.zinrelo": {
+    "component": "MyAccountZinreloLink"
   }
 }
